@@ -1,0 +1,795 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="es"><head><meta charset="utf-8"/><meta content="width=device-width, initial-scale=1.0" name="viewport"/><meta content="web_standard" name="shell-type"/><link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" rel="stylesheet"/><link href="https://fonts.googleapis.com" rel="preconnect"/><link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/><link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600;700&amp;family=Plus+Jakarta+Sans:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/><style>@layer base{html,body{margin:0;padding:0;}body{overscroll-behavior:none;}main>:first-child{margin-top:0!important;}main>:last-child{margin-bottom:0!important;}}::-webkit-scrollbar{display:none;}</style><script src="https://cdn.tailwindcss.com"></script><script id="tailwind-config">tailwind.config = { darkMode: "class", theme: { extend: { "colors": { "on-secondary": "#00363f", "surface-container": "#1c2026", "surface-bright": "#353940", "on-secondary-container": "#005966", "on-secondary-fixed-variant": "#004e5a", "on-surface-variant": "#b9cbbd", "surface-dim": "#10141a", "outline-variant": "#3b4a40", "surface": "#10141a", "on-tertiary": "#381385", "on-error-container": "#ffdad6", "on-primary-container": "#006b43", "error-container": "#93000a", "tertiary-fixed-dim": "#cebdff", "on-tertiary-container": "#664ab4", "primary": "#cdffde", "secondary-fixed-dim": "#0ad9f8", "secondary": "#9aecff", "on-primary-fixed": "#002111", "secondary-fixed": "#a5eeff", "on-primary-fixed-variant": "#005232", "on-tertiary-fixed-variant": "#4f319c", "on-secondary-fixed": "#001f25", "secondary-container": "#00d7f4", "error": "#ffb4ab", "surface-variant": "#31353c", "background": "#10141a", "inverse-primary": "#006c44", "surface-container-lowest": "#0a0e14", "primary-container": "#00f5a0", "surface-tint": "#00e293", "on-error": "#690005", "surface-container-low": "#181c22", "inverse-surface": "#dfe2eb", "tertiary": "#f8f1ff", "on-surface": "#dfe2eb", "primary-fixed-dim": "#00e293", "primary-fixed": "#50ffaf", "on-background": "#dfe2eb", "surface-container-high": "#262a31", "tertiary-container": "#ded0ff", "on-tertiary-fixed": "#21005e", "tertiary-fixed": "#e8ddff", "surface-container-highest": "#31353c", "inverse-on-surface": "#2d3137", "on-primary": "#003921", "outline": "#849588" }, "borderRadius": { "DEFAULT": "0.125rem", "lg": "0.25rem", "xl": "0.5rem", "full": "0.75rem" }, "spacing": { "margin": "3rem", "space-lg": "1.5rem", "space-xs": "0.25rem", "space-md": "1rem", "space-xl": "2.5rem", "space-sm": "0.5rem", "gutter-mobile": "1rem", "gutter": "1.5rem", "margin-mobile": "1.25rem" }, "fontFamily": { "headline-md": [ "Plus Jakarta Sans" ], "body-md": [ "Plus Jakarta Sans" ], "code-md": [ "JetBrains Mono" ], "display-mobile": [ "Plus Jakarta Sans" ], "code-sm": [ "JetBrains Mono" ], "headline-lg-mobile": [ "Plus Jakarta Sans" ], "headline-lg": [ "Plus Jakarta Sans" ], "code-lg": [ "JetBrains Mono" ], "label-sm": [ "JetBrains Mono" ], "display": [ "Plus Jakarta Sans" ], "body-lg": [ "Plus Jakarta Sans" ], "headline-sm": [ "Plus Jakarta Sans" ], "body-sm": [ "Plus Jakarta Sans" ], "label-md": [ "JetBrains Mono" ] }, "fontSize": { "headline-md": [ "22px", { "lineHeight": "30px", "letterSpacing": "-0.01em", "fontWeight": "600" } ], "body-md": [ "15px", { "lineHeight": "24px", "fontWeight": "400" } ], "code-md": [ "13px", { "lineHeight": "20px", "fontWeight": "400" } ], "display-mobile": [ "36px", { "lineHeight": "44px", "letterSpacing": "-0.02em", "fontWeight": "700" } ], "code-sm": [ "11px", { "lineHeight": "16px", "letterSpacing": "0.02em", "fontWeight": "500" } ], "headline-lg-mobile": [ "26px", { "lineHeight": "34px", "letterSpacing": "-0.015em", "fontWeight": "700" } ], "headline-lg": [ "32px", { "lineHeight": "40px", "letterSpacing": "-0.02em", "fontWeight": "700" } ], "code-lg": [ "15px", { "lineHeight": "24px", "fontWeight": "400" } ], "label-sm": [ "11px", { "lineHeight": "14px", "letterSpacing": "0.05em", "fontWeight": "500" } ], "display": [ "56px", { "lineHeight": "64px", "letterSpacing": "-0.03em", "fontWeight": "700" } ], "body-lg": [ "17px", { "lineHeight": "28px", "fontWeight": "400" } ], "headline-sm": [ "18px", { "lineHeight": "26px", "fontWeight": "600" } ], "body-sm": [ "13px", { "lineHeight": "20px", "fontWeight": "400" } ], "label-md": [ "12px", { "lineHeight": "16px", "letterSpacing": "0.04em", "fontWeight": "600" } ] } } } }</script></head><body class="bg-background font-body-md text-on-surface antialiased selection:bg-primary-container selection:text-on-primary-container"><header class="fixed top-0 left-0 right-0 z-50 bg-surface-dim/85 backdrop-blur-md shadow-[0_1px_8px_rgba(0,0,0,0.35)]"><div class="h-16 max-w-[1240px] mx-auto px-gutter flex items-center justify-between gap-space-md"><div class="flex items-center gap-space-sm"><img alt="Fabio Dev Logo" class="h-8 w-auto object-contain" src="https://lh3.googleusercontent.com/aida/AEtjO1U65YbyIAc6gqfVhokq4VwE4nsd3R8an_fimmftmWqYr06kYEJgT5j2vverGmtuBRxcYNAHy0TbRvYqB8r3lYLIZoCJ1NS9dEVzCp5wXptA5NZsJQeqayxavK96hE6VA0pKLFBH5xXr0OO0DA_wsusOcgo9_30wRKkNjhHGVRn4Uf1ELotTTobnZrQzyESeoXe3iiCkcReDqSbs4pKTSch7HbJR0uwBgQOPMqhnqdfL"/><a class="font-code-md text-code-md text-on-surface tracking-tight flex items-center gap-space-xs" data-path="inicio" href="#"><span class="font-headline-sm text-headline-sm text-on-surface font-bold">Fabio</span><span class="text-primary-container font-code-md text-code-md font-semibold">// Dev</span></a><div class="hidden xl:flex items-center gap-space-xs ml-space-sm px-space-sm py-0.5 rounded bg-surface-container-lowest text-on-surface-variant"><span class="relative flex h-2 w-2"><span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-primary-container opacity-75"></span><span class="relative inline-flex rounded-full h-2 w-2 bg-primary-container"></span></span><span class="font-label-sm text-label-sm uppercase text-on-surface-variant">Disponible para proyectos</span></div></div><nav class="hidden lg:flex items-center gap-space-xs p-1 rounded-xl bg-surface-container-lowest/60" data-active-classes="bg-surface-container-high text-on-surface font-semibold rounded-lg"><a aria-current="page" class="px-space-md py-space-xs transition-all bg-surface-container-high text-on-surface font-semibold rounded-lg" data-path="inicio" href="#">Inicio</a><a class="px-space-md py-space-xs rounded-lg text-on-surface-variant hover:text-on-surface hover:bg-surface-container transition-all font-body-sm text-body-sm" data-path="sobre-mi" href="#">Sobre mí</a><a class="px-space-md py-space-xs rounded-lg text-on-surface-variant hover:text-on-surface hover:bg-surface-container transition-all font-body-sm text-body-sm" data-path="habilidades-y-cursos" href="#">Habilidades &amp; Cursos</a><a class="px-space-md py-space-xs rounded-lg text-on-surface-variant hover:text-on-surface hover:bg-surface-container transition-all font-body-sm text-body-sm" data-path="proyectos" href="#">Proyectos</a><a class="px-space-md py-space-xs rounded-lg text-on-surface-variant hover:text-on-surface hover:bg-surface-container transition-all font-body-sm text-body-sm" data-path="contacto" href="#">Contacto</a></nav><div class="flex items-center gap-space-sm"><div class="flex items-center gap-space-xs px-space-sm py-1 rounded bg-surface-container-low text-on-surface-variant xl:hidden"><span class="h-2 w-2 rounded-full bg-primary-container inline-block"></span><span class="font-label-sm text-label-sm hidden sm:inline">Disponible</span></div><a class="inline-flex items-center justify-center px-space-md py-2 rounded-lg bg-primary-container text-on-primary-container font-label-md text-label-md tracking-wider transition-all hover:bg-primary hover:text-on-primary shadow-[0_0_16px_rgba(0,245,160,0.18)]" data-path="contacto" href="#">Contáctame</a><img alt="Profile" class="w-8 h-8 rounded-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCKyNbMZQglNKY31z9L9Mc6BkcGGsOLhRN4PRsTrNMYO04OAe6RsTvooHum1nQDKHfF3-ENvVfKIxGxVccq1ffylFsNQe7N4BYBACTPgI38M0NW8iCJq_45a7lfHr2qgs8Q2tY87uhQOFCKsOgRa2ybTOfBvgvw2hNmWxQLTDvaah0ESXFEmoithBMDTfS_TUiFEwLIHrpC9Syfulw-N2_7KVRtavS75UPXJVEjJ_Zm"/></div></div></header><main class="w-full pt-16 bg-surface min-h-[calc(100vh-16rem)]"><div class="flex flex-col w-full">
+<!-- AMBIENT TOP LIGHTING GLOWS -->
+<div class="relative w-full overflow-hidden">
+<div class="absolute -top-32 left-1/4 w-[500px] h-[500px] bg-primary-container/10 rounded-full blur-[140px] pointer-events-none"></div>
+<div class="absolute top-48 right-10 w-[420px] h-[420px] bg-secondary-container/10 rounded-full blur-[160px] pointer-events-none"></div>
+<!-- HERO SECTION -->
+<section class="max-w-[1240px] mx-auto px-gutter pt-space-xl pb-margin w-full">
+<div class="grid grid-cols-1 lg:grid-cols-12 gap-gutter items-center">
+<!-- Left Column: Pitch & Identity -->
+<div class="lg:col-span-7 flex flex-col gap-space-md">
+<!-- Warm Greeting Badge -->
+<div class="inline-flex items-center gap-space-xs px-space-sm py-1 rounded bg-surface-container text-on-surface-variant w-fit shadow-sm">
+<span class="text-sm">👋</span>
+<span class="font-code-sm text-code-sm text-primary-container tracking-wider uppercase font-semibold">Hola botsillo</span>
+<span class="text-outline-variant font-code-sm text-code-sm">•</span>
+<span class="font-code-sm text-code-sm text-on-surface-variant">status: online</span>
+</div>
+<!-- Main Hero Headline -->
+<h1 class="font-display text-display text-on-surface tracking-tight">
+            Fabio <span class="text-primary-container block sm:inline">— Desarrollador</span> de Software &amp; Creador de Bots
+          </h1>
+<!-- Value Proposition Pitch -->
+<p class="font-body-lg text-body-lg text-on-surface-variant max-w-xl">
+            Especializado en ingeniería con <strong class="text-on-surface font-semibold">Python</strong>, automatización de flujos y arquitectura de <strong class="text-secondary font-semibold">Bots de Discord</strong> de alto rendimiento. Comprometido, responsable y enfocado en entregar código limpio y estructurado.
+          </p>
+<!-- CTAs & Micro Actions -->
+<div class="flex flex-wrap items-center gap-space-md pt-space-xs">
+<a class="inline-flex items-center gap-space-xs px-space-lg py-3 rounded bg-primary-container text-on-primary-container font-label-md text-label-md hover:bg-primary transition-all shadow-[0_0_24px_rgba(0,245,160,0.22)]" href="#proyectos">
+<span class="material-symbols-outlined text-base">rocket_launch</span>
+              Ver Proyectos
+            </a>
+<a class="inline-flex items-center gap-space-xs px-space-lg py-3 rounded bg-surface-container text-on-surface font-label-md text-label-md hover:bg-surface-container-high transition-all shadow-sm" href="#contacto">
+<span class="material-symbols-outlined text-base">forum</span>
+              Contactar
+            </a>
+<a class="inline-flex items-center gap-space-xs px-space-md py-3 font-code-sm text-code-sm text-on-surface-variant hover:text-primary-container transition-colors" href="#habilidades">
+<span>$ cat certificados.py</span>
+<span class="material-symbols-outlined text-sm">arrow_forward</span>
+</a>
+</div>
+<!-- Quick Metrics Bar -->
+<div class="grid grid-cols-3 gap-space-sm pt-space-lg max-w-lg">
+<div class="p-space-sm rounded bg-surface-container-low flex flex-col shadow-sm">
+<div class="flex items-center gap-1 font-label-sm text-label-sm text-primary-container">
+<span class="material-symbols-outlined text-sm">verified_user</span>
+<span>100%</span>
+</div>
+<span class="font-headline-sm text-headline-sm text-on-surface font-bold">Responsable</span>
+<span class="font-code-sm text-code-sm text-on-surface-variant">Entregas puntuales</span>
+</div>
+<div class="p-space-sm rounded bg-surface-container-low flex flex-col shadow-sm">
+<div class="flex items-center gap-1 font-label-sm text-label-sm text-secondary">
+<span class="material-symbols-outlined text-sm">school</span>
+<span>CERTIFICADO</span>
+</div>
+<span class="font-headline-sm text-headline-sm text-on-surface font-bold">Python Pro</span>
+<span class="font-code-sm text-code-sm text-on-surface-variant">Basic &amp; Pro Grade</span>
+</div>
+<div class="p-space-sm rounded bg-surface-container-low flex flex-col shadow-sm">
+<div class="flex items-center gap-1 font-label-sm text-label-sm text-primary-container">
+<span class="material-symbols-outlined text-sm">smart_toy</span>
+<span>ACTIVOS</span>
+</div>
+<span class="font-headline-sm text-headline-sm text-on-surface font-bold">Bots 24/7</span>
+<span class="font-code-sm text-code-sm text-on-surface-variant">Discord &amp; Scripts</span>
+</div>
+</div>
+</div>
+<!-- Right Column: Interactive Code Terminal Window -->
+<div class="lg:col-span-5 flex flex-col">
+<div class="w-full rounded-xl bg-surface-container-lowest overflow-hidden shadow-2xl shadow-black/80">
+<!-- Terminal Header -->
+<div class="h-10 bg-surface-container-high px-space-md flex items-center justify-between">
+<div class="flex items-center gap-1.5">
+<span class="w-3 h-3 rounded-full bg-error-container inline-block"></span>
+<span class="w-3 h-3 rounded-full bg-outline-variant inline-block"></span>
+<span class="w-3 h-3 rounded-full bg-primary-container inline-block"></span>
+<span class="ml-2 font-code-sm text-code-sm text-on-surface-variant font-mono">saludo_fabio.py</span>
+</div>
+<div class="flex items-center gap-2">
+<span class="font-code-sm text-code-sm text-on-surface-variant">Python 3.12</span>
+<button class="p-1 rounded bg-surface-container hover:bg-surface-bright text-on-surface-variant hover:text-primary transition-all" id="btn-copiar-terminal" onclick="copiarTerminal()" title="Copiar código">
+<span class="material-symbols-outlined text-sm">content_copy</span>
+</button>
+</div>
+</div>
+<!-- Terminal Code Body -->
+<div class="p-space-md font-code-md text-code-md space-y-1">
+<div class="text-outline font-mono select-none"># Mi primer saludo</div>
+<div><span class="text-secondary font-semibold">def</span> <span class="text-primary-container font-semibold">saludar</span>():</div>
+<div class="pl-6"><span class="text-secondary">print</span>(<span class="text-primary">"hola"</span>)</div>
+<div class="h-2"></div>
+<div><span class="text-primary-container font-semibold">saludar</span>()</div>
+</div>
+<!-- Interactive Terminal Execution Shell -->
+<div class="bg-surface-container-low p-space-md">
+<div class="flex items-center justify-between pb-space-xs text-on-surface-variant font-code-sm text-code-sm">
+<span class="flex items-center gap-1">
+<span class="material-symbols-outlined text-sm text-primary-container">terminal</span>
+                  Consola de Salida
+                </span>
+<button class="px-space-sm py-0.5 rounded bg-primary-container text-on-primary-container font-label-sm text-label-sm font-semibold hover:bg-primary transition-colors" onclick="ejecutarScriptTerminal()">
+                  ▶ Ejecutar
+                </button>
+</div>
+<div class="font-code-sm text-code-sm text-primary p-space-sm rounded bg-surface-container-lowest min-h-[46px] flex items-center" id="terminal-consola-salida">
+<span class="text-outline-variant mr-2">$</span>
+<span class="text-on-surface" id="output-terminal-text">hola</span>
+</div>
+</div>
+</div>
+<!-- Bottom Micro Badge Grid -->
+<div class="flex items-center justify-between p-space-sm mt-space-sm rounded bg-surface-container-low text-on-surface-variant font-code-sm text-code-sm">
+<span class="flex items-center gap-1">
+<span class="w-2 h-2 rounded-full bg-primary-container animate-pulse"></span>
+              Core runtime: Python 3.x
+            </span>
+<span class="text-secondary">Discord.py Ready</span>
+</div>
+</div>
+</div>
+</section>
+</div>
+<!-- SECTION: SOBRE MÍ -->
+<section class="max-w-[1240px] mx-auto px-gutter py-margin w-full" id="sobre-mi">
+<!-- Header of section -->
+<div class="flex flex-col gap-space-xs mb-space-xl">
+<div class="flex items-center gap-space-xs text-primary-container font-code-sm text-code-sm uppercase tracking-widest">
+<span>// 01. IDENTIDAD &amp; DISCIPLINA</span>
+</div>
+<h2 class="font-headline-lg text-headline-lg text-on-surface">Sobre Mí</h2>
+<p class="font-body-md text-body-md text-on-surface-variant max-w-2xl">
+        Conoce los pilares que impulsan mi día a día: pasión por la tecnología, colaboración auténtica con mi entorno y equilibrio saludable para rendir al máximo nivel.
+      </p>
+</div>
+<!-- Bento-Grid of Facts & Lifestyle Cards -->
+<div class="grid grid-cols-1 md:grid-cols-12 gap-gutter">
+<!-- Card 1: Me gusta programar -->
+<div class="md:col-span-4 rounded-xl bg-surface-container p-space-lg flex flex-col justify-between shadow-lg relative overflow-hidden group hover:bg-surface-container-high transition-all">
+<div class="absolute -right-6 -bottom-6 w-32 h-32 bg-primary-container/5 rounded-full blur-2xl group-hover:bg-primary-container/15 transition-all"></div>
+<div>
+<div class="w-12 h-12 rounded-lg bg-surface-container-lowest flex items-center justify-center text-primary-container mb-space-md shadow-sm">
+<span class="material-symbols-outlined text-2xl">code_blocks</span>
+</div>
+<span class="font-code-sm text-code-sm text-primary-container tracking-wider uppercase font-semibold">Dev Core</span>
+<h3 class="font-headline-md text-headline-md text-on-surface mt-1 mb-space-xs">Me gusta programar</h3>
+<p class="font-body-md text-body-md text-on-surface-variant">
+            Pasión constante por escribir código estructurado, resolver acertijos de lógica pura y explorar nuevas arquitecturas. Disfruto convertir problemas abstractos en software funcional y mantenible.
+          </p>
+</div>
+<div class="pt-space-md mt-space-md flex flex-wrap gap-1.5 font-code-sm text-code-sm">
+<span class="px-2 py-0.5 rounded bg-surface-container-lowest text-on-surface">#clean-code</span>
+<span class="px-2 py-0.5 rounded bg-surface-container-lowest text-primary">#algoritmos</span>
+<span class="px-2 py-0.5 rounded bg-surface-container-lowest text-secondary">#python</span>
+</div>
+</div>
+<!-- Card 2: Jugar y pasar tiempo con mis amigos -->
+<div class="md:col-span-4 rounded-xl bg-surface-container p-space-lg flex flex-col justify-between shadow-lg relative overflow-hidden group hover:bg-surface-container-high transition-all">
+<div class="absolute -right-6 -bottom-6 w-32 h-32 bg-secondary-container/5 rounded-full blur-2xl group-hover:bg-secondary-container/15 transition-all"></div>
+<div>
+<div class="w-12 h-12 rounded-lg bg-surface-container-lowest flex items-center justify-center text-secondary mb-space-md shadow-sm">
+<span class="material-symbols-outlined text-2xl">sports_esports</span>
+</div>
+<span class="font-code-sm text-code-sm text-secondary tracking-wider uppercase font-semibold">Social &amp; Team</span>
+<h3 class="font-headline-md text-headline-md text-on-surface mt-1 mb-space-xs">Jugar y amigos</h3>
+<p class="font-body-md text-body-md text-on-surface-variant">
+            Trabajo en equipo, comunicación sincera y momentos compartidos para recargar creatividad. Creo bots para nuestras comunidades en Discord y disfruto cooperar tanto en partidas online como en proyectos colectivos.
+          </p>
+</div>
+<div class="pt-space-md mt-space-md flex flex-wrap gap-1.5 font-code-sm text-code-sm">
+<span class="px-2 py-0.5 rounded bg-surface-container-lowest text-on-surface">#teamwork</span>
+<span class="px-2 py-0.5 rounded bg-surface-container-lowest text-secondary">#comunidades</span>
+<span class="px-2 py-0.5 rounded bg-surface-container-lowest text-tertiary">#discord</span>
+</div>
+</div>
+<!-- Card 3: Hacer deporte y comer saludable -->
+<div class="md:col-span-4 rounded-xl bg-surface-container p-space-lg flex flex-col justify-between shadow-lg relative overflow-hidden group hover:bg-surface-container-high transition-all">
+<div class="absolute -right-6 -bottom-6 w-32 h-32 bg-primary/5 rounded-full blur-2xl group-hover:bg-primary/15 transition-all"></div>
+<div>
+<div class="w-12 h-12 rounded-lg bg-surface-container-lowest flex items-center justify-center text-primary-fixed mb-space-md shadow-sm">
+<span class="material-symbols-outlined text-2xl">fitness_center</span>
+</div>
+<span class="font-code-sm text-code-sm text-primary-fixed tracking-wider uppercase font-semibold">Salud &amp; Foco</span>
+<h3 class="font-headline-md text-headline-md text-on-surface mt-1 mb-space-xs">Deporte &amp; Salud</h3>
+<p class="font-body-md text-body-md text-on-surface-variant">
+            Disciplina inquebrantable, nutrición balanceada y entrenamiento diario. Mantener el cuerpo activo nutre la claridad mental requerida para sesiones intensas de debugging y diseño técnico exigente.
+          </p>
+</div>
+<div class="pt-space-md mt-space-md flex flex-wrap gap-1.5 font-code-sm text-code-sm">
+<span class="px-2 py-0.5 rounded bg-surface-container-lowest text-on-surface">#disciplina</span>
+<span class="px-2 py-0.5 rounded bg-surface-container-lowest text-primary">#mente-clara</span>
+<span class="px-2 py-0.5 rounded bg-surface-container-lowest text-on-surface-variant">#habitos</span>
+</div>
+</div>
+</div>
+<!-- Lifestyle Visual Quote Banner -->
+<div class="mt-gutter rounded-xl bg-surface-container-lowest p-space-lg flex flex-col md:flex-row items-center justify-between gap-space-md shadow-xl">
+<div class="flex items-center gap-space-md">
+<div class="w-10 h-10 rounded-full bg-primary-container/20 flex items-center justify-center text-primary-container shrink-0">
+<span class="material-symbols-outlined">psychology</span>
+</div>
+<div>
+<h4 class="font-headline-sm text-headline-sm text-on-surface">Filosofía de vida: Constancia &amp; Claridad</h4>
+<p class="font-body-sm text-body-sm text-on-surface-variant">Un desarrollador equilibrado escribe soluciones más seguras, rápidas y fiables.</p>
+</div>
+</div>
+<div class="flex items-center gap-space-sm font-code-sm text-code-sm text-primary-container px-space-md py-1.5 rounded bg-surface-container">
+<span class="material-symbols-outlined text-base">check_circle</span>
+<span>Código testeado • Vida activa</span>
+</div>
+</div>
+</section>
+<!-- SECTION: HABILIDADES & CURSOS REALIZADOS -->
+<section class="max-w-[1240px] mx-auto px-gutter py-margin w-full" id="habilidades">
+<div class="flex flex-col gap-space-xs mb-space-xl">
+<div class="flex items-center gap-space-xs text-primary-container font-code-sm text-code-sm uppercase tracking-widest">
+<span>// 02. FORMACIÓN &amp; CAPACIDADES</span>
+</div>
+<h2 class="font-headline-lg text-headline-lg text-on-surface">Habilidades &amp; Cursos Realizados</h2>
+<p class="font-body-md text-body-md text-on-surface-variant max-w-2xl">
+        Certificación técnica estructurada en Python y habilidades profesionales orientadas a la construcción de software sólido y comunicación clara.
+      </p>
+</div>
+<div class="grid grid-cols-1 lg:grid-cols-12 gap-gutter items-start">
+<!-- Columna 1: Cursos Realizados -->
+<div class="lg:col-span-6 flex flex-col gap-space-md">
+<div class="flex items-center justify-between pb-space-xs">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-primary-container">workspace_premium</span>
+<h3 class="font-headline-md text-headline-md text-on-surface">Cursos Realizados</h3>
+</div>
+<span class="font-code-sm text-code-sm px-2 py-0.5 rounded bg-surface-container text-primary-container">2 Certificaciones</span>
+</div>
+<!-- Curso 1: Python Basic -->
+<div class="rounded-xl bg-surface-container p-space-md shadow-md flex flex-col gap-space-sm hover:bg-surface-container-high transition-colors">
+<div class="flex items-start justify-between gap-space-sm">
+<div class="flex items-center gap-3">
+<div class="w-10 h-10 rounded bg-surface-container-lowest flex items-center justify-center text-primary-container">
+<span class="material-symbols-outlined">terminal</span>
+</div>
+<div>
+<h4 class="font-headline-sm text-headline-sm text-on-surface">Python Basic</h4>
+<span class="font-code-sm text-code-sm text-on-surface-variant">Fundamentos y Estructuras Esenciales</span>
+</div>
+</div>
+<span class="px-space-sm py-1 rounded bg-surface-container-lowest text-primary-container font-code-sm text-code-sm flex items-center gap-1 font-semibold">
+<span class="material-symbols-outlined text-sm">check_circle</span> Completado
+            </span>
+</div>
+<p class="font-body-sm text-body-sm text-on-surface-variant">
+            Dominio de lógica de programación, tipos de datos primitivos, listas, diccionarios, bucles for/while, funciones modulares y control de excepciones.
+          </p>
+<div class="flex items-center gap-space-xs pt-1">
+<span class="px-2 py-0.5 rounded bg-surface-container-lowest text-on-surface-variant font-code-sm text-code-sm">Sintaxis Básica</span>
+<span class="px-2 py-0.5 rounded bg-surface-container-lowest text-on-surface-variant font-code-sm text-code-sm">Control de Flujo</span>
+<span class="px-2 py-0.5 rounded bg-surface-container-lowest text-on-surface-variant font-code-sm text-code-sm">Manejo de Errores</span>
+</div>
+</div>
+<!-- Curso 2: Python Pro -->
+<div class="rounded-xl bg-surface-container p-space-md shadow-md flex flex-col gap-space-sm hover:bg-surface-container-high transition-colors">
+<div class="flex items-start justify-between gap-space-sm">
+<div class="flex items-center gap-3">
+<div class="w-10 h-10 rounded bg-surface-container-lowest flex items-center justify-center text-secondary">
+<span class="material-symbols-outlined">developer_mode</span>
+</div>
+<div>
+<h4 class="font-headline-sm text-headline-sm text-on-surface">Python Pro</h4>
+<span class="font-code-sm text-code-sm text-secondary">Estructuras Avanzadas &amp; POO</span>
+</div>
+</div>
+<span class="px-space-sm py-1 rounded bg-surface-container-lowest text-secondary font-code-sm text-code-sm flex items-center gap-1 font-semibold">
+<span class="material-symbols-outlined text-sm">verified</span> Certificado
+            </span>
+</div>
+<p class="font-body-sm text-body-sm text-on-surface-variant">
+            Programación orientada a objetos (POO), herencia, polimorfismo, decoradores, generadores, arquitectura asíncrona (asyncio) y automatizaciones avanzadas.
+          </p>
+<div class="flex items-center gap-space-xs pt-1">
+<span class="px-2 py-0.5 rounded bg-surface-container-lowest text-on-surface-variant font-code-sm text-code-sm">POO Avanzado</span>
+<span class="px-2 py-0.5 rounded bg-surface-container-lowest text-on-surface-variant font-code-sm text-code-sm">Async / Await</span>
+<span class="px-2 py-0.5 rounded bg-surface-container-lowest text-on-surface-variant font-code-sm text-code-sm">Pipelines</span>
+</div>
+</div>
+<!-- Snippet Interactivo print("hola") con botón de copiar -->
+<div class="rounded-xl bg-surface-container-lowest p-space-md shadow-inner flex flex-col gap-space-xs">
+<div class="flex items-center justify-between">
+<span class="font-code-sm text-code-sm text-on-surface-variant font-mono">// Snippet de demostración</span>
+<button class="flex items-center gap-1 px-space-sm py-1 rounded bg-surface-container hover:bg-surface-bright text-primary font-code-sm text-code-sm transition-all" id="btn-copiar-hola" onclick="copiarSnippetHola()">
+<span class="material-symbols-outlined text-sm">content_copy</span>
+<span id="label-copiar-hola">Copiar código</span>
+</button>
+</div>
+<div class="p-space-sm rounded bg-surface-container-high font-code-md text-code-md flex items-center justify-between">
+<code class="text-on-surface" id="codigo-hola-text">
+<span class="text-secondary font-semibold">print</span>(<span class="text-primary">"hola"</span>)
+            </code>
+<span class="font-code-sm text-code-sm text-outline-variant font-mono"># salida: hola</span>
+</div>
+</div>
+</div>
+<!-- Columna 2: Habilidades Clave -->
+<div class="lg:col-span-6 flex flex-col gap-space-md">
+<div class="flex items-center justify-between pb-space-xs">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-secondary">bolt</span>
+<h3 class="font-headline-md text-headline-md text-on-surface">Habilidades Clave</h3>
+</div>
+<span class="font-code-sm text-code-sm px-2 py-0.5 rounded bg-surface-container text-secondary">3 Pilares</span>
+</div>
+<!-- Habilidad 1: Programar -->
+<div class="rounded-xl bg-surface-container p-space-md shadow-md flex flex-col gap-space-sm hover:bg-surface-container-high transition-colors">
+<div class="flex items-center justify-between">
+<div class="flex items-center gap-3">
+<div class="w-10 h-10 rounded bg-surface-container-lowest flex items-center justify-center text-primary-container">
+<span class="material-symbols-outlined">data_object</span>
+</div>
+<div>
+<h4 class="font-headline-sm text-headline-sm text-on-surface">Programar</h4>
+<span class="font-code-sm text-code-sm text-on-surface-variant">Lógica y Algoritmia</span>
+</div>
+</div>
+<span class="font-code-sm text-code-sm text-primary font-semibold">Avanzado</span>
+</div>
+<p class="font-body-sm text-body-sm text-on-surface-variant">
+            Capacidad analítica para descomponer problemas complejos en soluciones computacionales simples, limpias y escalables con buenas prácticas de software.
+          </p>
+<!-- Low-profile Categorical Metric Bar -->
+<div class="w-full bg-surface-container-lowest rounded-full h-2 overflow-hidden">
+<div class="bg-primary-container h-full rounded-full w-[92%] transition-all"></div>
+</div>
+</div>
+<!-- Habilidad 2: Bots de Discord -->
+<div class="rounded-xl bg-surface-container p-space-md shadow-md flex flex-col gap-space-sm hover:bg-surface-container-high transition-colors">
+<div class="flex items-center justify-between">
+<div class="flex items-center gap-3">
+<div class="w-10 h-10 rounded bg-surface-container-lowest flex items-center justify-center text-secondary">
+<span class="material-symbols-outlined">smart_toy</span>
+</div>
+<div>
+<h4 class="font-headline-sm text-headline-sm text-on-surface">Bots de Discord</h4>
+<span class="font-code-sm text-code-sm text-on-surface-variant">Discord.py &amp; Automatización</span>
+</div>
+</div>
+<span class="font-code-sm text-code-sm text-secondary font-semibold">Especialidad</span>
+</div>
+<p class="font-body-sm text-body-sm text-on-surface-variant">
+            Construcción de bots completos: gestión de eventos en tiempo real, comandos Slash (/), moderación automática, roles interactivos y webhooks.
+          </p>
+<div class="w-full bg-surface-container-lowest rounded-full h-2 overflow-hidden">
+<div class="bg-secondary h-full rounded-full w-[95%] transition-all"></div>
+</div>
+</div>
+<!-- Habilidad 3: Ser Responsable -->
+<div class="rounded-xl bg-surface-container p-space-md shadow-md flex flex-col gap-space-sm hover:bg-surface-container-high transition-colors">
+<div class="flex items-center justify-between">
+<div class="flex items-center gap-3">
+<div class="w-10 h-10 rounded bg-surface-container-lowest flex items-center justify-center text-primary-fixed">
+<span class="material-symbols-outlined">handshake</span>
+</div>
+<div>
+<h4 class="font-headline-sm text-headline-sm text-on-surface">Ser Responsable</h4>
+<span class="font-code-sm text-code-sm text-on-surface-variant">Compromiso &amp; Ética Profesional</span>
+</div>
+</div>
+<span class="font-code-sm text-code-sm text-primary-fixed font-semibold">100% Garantizado</span>
+</div>
+<p class="font-body-sm text-body-sm text-on-surface-variant">
+            Puntualidad en los plazos convenidos, comunicación transparente en cada etapa del desarrollo y seguimiento constante para asegurar máxima calidad.
+          </p>
+<div class="w-full bg-surface-container-lowest rounded-full h-2 overflow-hidden">
+<div class="bg-primary-fixed h-full rounded-full w-[100%] transition-all"></div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- SECTION: PROYECTOS -->
+<section class="max-w-[1240px] mx-auto px-gutter py-margin w-full" id="proyectos">
+<div class="flex flex-col md:flex-row md:items-end justify-between gap-space-md mb-space-xl">
+<div class="flex flex-col gap-space-xs">
+<div class="flex items-center gap-space-xs text-primary-container font-code-sm text-code-sm uppercase tracking-widest">
+<span>// 03. REPOSITORIOS &amp; DESARROLLOS</span>
+</div>
+<h2 class="font-headline-lg text-headline-lg text-on-surface">Proyectos Destacados</h2>
+<p class="font-body-md text-body-md text-on-surface-variant max-w-xl">
+          Soluciones prácticas creadas con Python y Discord.py con foco en rendimiento, control y experiencia de usuario fluida.
+        </p>
+</div>
+<div class="flex items-center gap-2">
+<span class="font-code-sm text-code-sm text-on-surface-variant">Filtrar:</span>
+<span class="px-space-sm py-1 rounded bg-surface-container text-primary-container font-code-sm text-code-sm">Todos (3)</span>
+</div>
+</div>
+<!-- Grid of Projects -->
+<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-gutter">
+<!-- Proyecto A: Bot de Discord -->
+<div class="rounded-xl bg-surface-container p-space-md flex flex-col justify-between shadow-xl hover:bg-surface-container-high transition-all group">
+<div>
+<!-- Mockup Visual Header -->
+<div class="h-44 rounded-lg bg-surface-container-lowest p-space-md flex flex-col justify-between relative overflow-hidden mb-space-md">
+<div class="flex items-center justify-between">
+<span class="font-code-sm text-code-sm text-primary-container">// FEATURED BOT</span>
+<span class="flex items-center gap-1 font-code-sm text-code-sm text-primary-container">
+<span class="w-2 h-2 rounded-full bg-primary-container animate-ping"></span>
+                Online
+              </span>
+</div>
+<!-- Mockup Discord chat box UI element -->
+<div class="bg-surface-container/90 rounded p-space-xs font-code-sm text-code-sm space-y-1">
+<div class="text-secondary font-semibold">BotSillo#0001 <span class="text-[10px] bg-secondary-container/20 text-secondary px-1 rounded ml-1">BOT</span></div>
+<div class="text-on-surface text-xs">/saludar • ¡Hola comunidad! Sistema listo.</div>
+</div>
+<div class="text-[10px] text-outline font-mono">discord.ext.commands v2.3</div>
+</div>
+<span class="font-code-sm text-code-sm text-secondary font-semibold">BOT DISCORD INTELIGENTE</span>
+<h3 class="font-headline-sm text-headline-sm text-on-surface mt-1 mb-space-xs">Proyecto A: Bot Multifuncional</h3>
+<p class="font-body-sm text-body-sm text-on-surface-variant">
+            Bot de Discord de propósito general con suite de moderación automática, registro de logs, comandos interactivos para usuarios y sistema de bienvenida configurable.
+          </p>
+<!-- Tech Pills -->
+<div class="flex flex-wrap gap-1.5 pt-space-md font-code-sm text-code-sm">
+<span class="px-2 py-0.5 rounded bg-surface-container-lowest text-primary">Python 3.12</span>
+<span class="px-2 py-0.5 rounded bg-surface-container-lowest text-secondary">Discord.py</span>
+<span class="px-2 py-0.5 rounded bg-surface-container-lowest text-on-surface-variant">AsyncIO</span>
+</div>
+</div>
+<!-- Card Footer Actions -->
+<div class="flex items-center gap-space-sm pt-space-lg mt-space-md">
+<button class="flex-1 py-2 rounded bg-primary-container text-on-primary-container font-label-md text-label-md flex items-center justify-center gap-1 hover:bg-primary transition-all" onclick="abrirModalDemo('Proyecto A: Bot de Discord')">
+<span class="material-symbols-outlined text-sm">visibility</span>
+            Ver demo
+          </button>
+<button class="px-3 py-2 rounded bg-surface-container-lowest text-on-surface hover:text-primary transition-all" onclick="abrirModalCodigo('Proyecto A')" title="Ver repositorio de código">
+<span class="material-symbols-outlined text-base">code</span>
+</button>
+</div>
+</div>
+<!-- Proyecto B: Sistema de automatización en Python -->
+<div class="rounded-xl bg-surface-container p-space-md flex flex-col justify-between shadow-xl hover:bg-surface-container-high transition-all group">
+<div>
+<!-- Mockup Visual Header -->
+<div class="h-44 rounded-lg bg-surface-container-lowest p-space-md flex flex-col justify-between relative overflow-hidden mb-space-md">
+<div class="flex items-center justify-between">
+<span class="font-code-sm text-code-sm text-secondary">// SCRIPT AUTOMATION</span>
+<span class="font-code-sm text-code-sm text-on-surface-variant">CRON: Active</span>
+</div>
+<!-- Mockup data stream UI element -->
+<div class="bg-surface-container/90 rounded p-space-xs font-code-sm text-code-sm space-y-1">
+<div class="flex justify-between text-xs">
+<span class="text-on-surface-variant">Pipeline ejecución:</span>
+<span class="text-primary-container">100% OK</span>
+</div>
+<div class="w-full bg-surface-container-lowest h-1.5 rounded-full overflow-hidden">
+<div class="bg-primary-container h-full w-full"></div>
+</div>
+</div>
+<div class="text-[10px] text-outline font-mono">runtime: python scheduler.py</div>
+</div>
+<span class="font-code-sm text-code-sm text-primary-container font-semibold">AUTOMATIZACIÓN &amp; SCRIPTS</span>
+<h3 class="font-headline-sm text-headline-sm text-on-surface mt-1 mb-space-xs">Proyecto B: Automation Suite</h3>
+<p class="font-body-sm text-body-sm text-on-surface-variant">
+            Conjunto de scripts modulares en Python diseñados para ejecutar tareas repetitivas, parseo de información estructurada, validación de archivos y notificaciones.
+          </p>
+<!-- Tech Pills -->
+<div class="flex flex-wrap gap-1.5 pt-space-md font-code-sm text-code-sm">
+<span class="px-2 py-0.5 rounded bg-surface-container-lowest text-primary">Python Scripts</span>
+<span class="px-2 py-0.5 rounded bg-surface-container-lowest text-secondary">JSON / CSV</span>
+<span class="px-2 py-0.5 rounded bg-surface-container-lowest text-on-surface-variant">Scheduler</span>
+</div>
+</div>
+<!-- Card Footer Actions -->
+<div class="flex items-center gap-space-sm pt-space-lg mt-space-md">
+<button class="flex-1 py-2 rounded bg-primary-container text-on-primary-container font-label-md text-label-md flex items-center justify-center gap-1 hover:bg-primary transition-all" onclick="abrirModalDemo('Proyecto B: Automation Suite')">
+<span class="material-symbols-outlined text-sm">play_arrow</span>
+            Ver demo
+          </button>
+<button class="px-3 py-2 rounded bg-surface-container-lowest text-on-surface hover:text-primary transition-all" onclick="abrirModalCodigo('Proyecto B')" title="Ver repositorio de código">
+<span class="material-symbols-outlined text-base">code</span>
+</button>
+</div>
+</div>
+<!-- Proyecto C: Aplicación Backend & Consola interactiva -->
+<div class="rounded-xl bg-surface-container p-space-md flex flex-col justify-between shadow-xl hover:bg-surface-container-high transition-all group">
+<div>
+<!-- Mockup Visual Header -->
+<div class="h-44 rounded-lg bg-surface-container-lowest p-space-md flex flex-col justify-between relative overflow-hidden mb-space-md">
+<div class="flex items-center justify-between">
+<span class="font-code-sm text-code-sm text-primary-fixed">// BACKEND CONSOLE</span>
+<span class="font-code-sm text-code-sm text-primary-fixed">CLI v1.2</span>
+</div>
+<!-- Mockup terminal prompt UI element -->
+<div class="bg-surface-container/90 rounded p-space-xs font-code-sm text-code-sm space-y-1">
+<div class="text-xs text-on-surface">&gt; python app.py --process-all</div>
+<div class="text-xs text-primary-container">✓ 48 registros estructurados</div>
+</div>
+<div class="text-[10px] text-outline font-mono">Memory: 18MB • 0 errors</div>
+</div>
+<span class="font-code-sm text-code-sm text-primary-fixed font-semibold">BACKEND &amp; PROCESAMIENTO</span>
+<h3 class="font-headline-sm text-headline-sm text-on-surface mt-1 mb-space-xs">Proyecto C: Consola de Datos</h3>
+<p class="font-body-sm text-body-sm text-on-surface-variant">
+            Herramienta backend interactiva por consola con arquitectura POO limpia, filtrado de datos dinámico y generación de reportes detallados en tiempo real.
+          </p>
+<!-- Tech Pills -->
+<div class="flex flex-wrap gap-1.5 pt-space-md font-code-sm text-code-sm">
+<span class="px-2 py-0.5 rounded bg-surface-container-lowest text-primary">POO Avanzado</span>
+<span class="px-2 py-0.5 rounded bg-surface-container-lowest text-secondary">CLI Interface</span>
+<span class="px-2 py-0.5 rounded bg-surface-container-lowest text-on-surface-variant">Clean Arch</span>
+</div>
+</div>
+<!-- Card Footer Actions -->
+<div class="flex items-center gap-space-sm pt-space-lg mt-space-md">
+<button class="flex-1 py-2 rounded bg-primary-container text-on-primary-container font-label-md text-label-md flex items-center justify-center gap-1 hover:bg-primary transition-all" onclick="abrirModalDemo('Proyecto C: Consola de Datos')">
+<span class="material-symbols-outlined text-sm">terminal</span>
+            Ver demo
+          </button>
+<button class="px-3 py-2 rounded bg-surface-container-lowest text-on-surface hover:text-primary transition-all" onclick="abrirModalCodigo('Proyecto C')" title="Ver repositorio de código">
+<span class="material-symbols-outlined text-base">code</span>
+</button>
+</div>
+</div>
+</div>
+</section>
+<!-- SECTION: CONTACTO & SERVICIOS -->
+<section class="max-w-[1240px] mx-auto px-gutter py-margin w-full" id="contacto">
+<div class="grid grid-cols-1 lg:grid-cols-12 gap-gutter items-stretch">
+<!-- Direct Contact Cards & Information -->
+<div class="lg:col-span-5 flex flex-col justify-between gap-space-md">
+<div>
+<div class="flex items-center gap-space-xs text-primary-container font-code-sm text-code-sm uppercase tracking-widest mb-space-xs">
+<span>// 04. COMUNICACIÓN DIRECTA</span>
+</div>
+<h2 class="font-headline-lg text-headline-lg text-on-surface">Iniciemos un Proyecto Juntos</h2>
+<p class="font-body-md text-body-md text-on-surface-variant mt-space-xs mb-space-md">
+            ¿Necesitas un bot de Discord a medida, automatizar tareas repetitivas en Python o un desarrollador responsable para tu equipo? Respuestas rápidas garantizadas.
+          </p>
+<!-- Contact Quick Action 1: Email -->
+<div class="rounded-xl bg-surface-container p-space-md shadow-md mb-space-sm flex flex-col gap-space-xs hover:bg-surface-container-high transition-colors">
+<div class="flex items-center justify-between">
+<span class="font-code-sm text-code-sm text-on-surface-variant flex items-center gap-1">
+<span class="material-symbols-outlined text-sm text-primary-container">mail</span>
+                Correo Electrónico
+              </span>
+<span class="font-code-sm text-code-sm text-primary-container">Principal</span>
+</div>
+<div class="flex items-center justify-between mt-1">
+<span class="font-headline-sm text-headline-sm text-on-surface select-all font-mono">fabio@gmail.com</span>
+<div class="flex items-center gap-1">
+<button class="p-2 rounded bg-surface-container-lowest hover:bg-surface-bright text-on-surface-variant hover:text-primary transition-all" id="btn-copy-email" onclick="copiarEmail()" title="Copiar correo">
+<span class="material-symbols-outlined text-sm">content_copy</span>
+</button>
+<a class="p-2 rounded bg-primary-container text-on-primary-container hover:bg-primary transition-all" href="mailto:fabio@gmail.com" title="Enviar correo">
+<span class="material-symbols-outlined text-sm">send</span>
+</a>
+</div>
+</div>
+</div>
+<!-- Contact Quick Action 2: Teléfono / WhatsApp -->
+<div class="rounded-xl bg-surface-container p-space-md shadow-md flex flex-col gap-space-xs hover:bg-surface-container-high transition-colors">
+<div class="flex items-center justify-between">
+<span class="font-code-sm text-code-sm text-on-surface-variant flex items-center gap-1">
+<span class="material-symbols-outlined text-sm text-secondary">call</span>
+                Teléfono &amp; WhatsApp
+              </span>
+<span class="font-code-sm text-code-sm text-secondary">Directo</span>
+</div>
+<div class="flex items-center justify-between mt-1">
+<span class="font-headline-sm text-headline-sm text-on-surface select-all font-mono">20202020</span>
+<div class="flex items-center gap-1">
+<button class="p-2 rounded bg-surface-container-lowest hover:bg-surface-bright text-on-surface-variant hover:text-secondary transition-all" id="btn-copy-tel" onclick="copiarTelefono()" title="Copiar teléfono">
+<span class="material-symbols-outlined text-sm">content_copy</span>
+</button>
+<a class="p-2 rounded bg-secondary text-on-secondary hover:bg-secondary-fixed transition-all" href="tel:20202020" title="Llamar directamente">
+<span class="material-symbols-outlined text-sm">phone</span>
+</a>
+<a class="p-2 rounded bg-surface-container-lowest hover:bg-surface-bright text-primary-container transition-all" href="https://wa.me/20202020" rel="noopener noreferrer" target="_blank" title="Abrir WhatsApp">
+<span class="material-symbols-outlined text-sm">chat</span>
+</a>
+</div>
+</div>
+</div>
+</div>
+<!-- Terminal Status Card -->
+<div class="p-space-sm rounded-lg bg-surface-container-lowest font-code-sm text-code-sm text-on-surface-variant flex items-center gap-space-xs">
+<span class="w-2 h-2 rounded-full bg-primary-container inline-block"></span>
+<span>Zona horaria activa • Respuesta habitual en &lt; 24h</span>
+</div>
+</div>
+<!-- Functional Visual Contact Form -->
+<div class="lg:col-span-7 rounded-xl bg-surface-container-low p-space-lg shadow-2xl flex flex-col justify-between">
+<div>
+<div class="flex items-center justify-between pb-space-md">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-primary-container">send</span>
+<h3 class="font-headline-md text-headline-md text-on-surface">Enviar Mensaje</h3>
+</div>
+<span class="font-code-sm text-code-sm text-on-surface-variant font-mono">form: contact.init()</span>
+</div>
+<form class="space-y-space-md" id="formulario-contacto" onsubmit="enviarMensajeFormulario(event)">
+<div>
+<label class="block font-label-md text-label-md uppercase text-on-surface mb-1" for="campo-nombre">
+                Nombre Completo *
+              </label>
+<input class="w-full px-space-md py-3 rounded bg-surface-container-lowest text-on-surface font-body-md text-body-md placeholder:text-outline focus:outline-none focus:bg-surface-container transition-all" id="campo-nombre" placeholder="Ej: Lucas Martínez" required="" type="text"/>
+</div>
+<div>
+<label class="block font-label-md text-label-md uppercase text-on-surface mb-1" for="campo-email">
+                Correo Electrónico *
+              </label>
+<input class="w-full px-space-md py-3 rounded bg-surface-container-lowest text-on-surface font-body-md text-body-md placeholder:text-outline focus:outline-none focus:bg-surface-container transition-all" id="campo-email" placeholder="tu-correo@ejemplo.com" required="" type="email"/>
+</div>
+<div>
+<label class="block font-label-md text-label-md uppercase text-on-surface mb-1" for="campo-mensaje">
+                Mensaje o Requerimiento del Proyecto *
+              </label>
+<textarea class="w-full px-space-md py-3 rounded bg-surface-container-lowest text-on-surface font-body-md text-body-md placeholder:text-outline focus:outline-none focus:bg-surface-container transition-all resize-none" id="campo-mensaje" placeholder="Hola Fabio, me gustaría desarrollar un bot de Discord con automatizaciones en Python..." required="" rows="4"></textarea>
+</div>
+<div class="pt-space-xs flex flex-col sm:flex-row items-center justify-between gap-space-sm">
+<span class="font-code-sm text-code-sm text-on-surface-variant flex items-center gap-1">
+<span class="material-symbols-outlined text-sm text-primary-container">lock</span>
+                Datos protegidos y contacto privado
+              </span>
+<button class="w-full sm:w-auto inline-flex items-center justify-center gap-space-xs px-space-xl py-3 rounded bg-primary-container text-on-primary-container font-label-md text-label-md hover:bg-primary transition-all shadow-[0_0_20px_rgba(0,245,160,0.18)]" id="btn-enviar-form" type="submit">
+<span class="material-symbols-outlined text-base">forward_to_inbox</span>
+<span>Enviar Mensaje</span>
+</button>
+</div>
+</form>
+</div>
+<!-- Success Toast Notification (Hidden by default) -->
+<div class="hidden mt-space-md p-space-sm rounded bg-surface-container text-primary-container font-code-sm text-code-sm flex items-center gap-2" id="form-alerta-exito">
+<span class="material-symbols-outlined">check_circle</span>
+<span>¡Mensaje recibido con éxito! Fabio te responderá a la brevedad.</span>
+</div>
+</div>
+</div>
+</section>
+<!-- MODAL GENÉRICO DE DEMO / CÓDIGO -->
+<div class="fixed inset-0 z-50 bg-black/80 backdrop-blur-sm hidden items-center justify-center p-space-md" id="modal-proyecto">
+<div class="bg-surface-container-lowest max-w-lg w-full rounded-xl p-space-lg shadow-2xl flex flex-col gap-space-md">
+<div class="flex items-center justify-between">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-primary-container">terminal</span>
+<h3 class="font-headline-sm text-headline-sm text-on-surface" id="modal-titulo">Detalle del Proyecto</h3>
+</div>
+<button class="p-1 rounded bg-surface-container hover:bg-surface-bright text-on-surface-variant hover:text-on-surface" onclick="cerrarModal()">
+<span class="material-symbols-outlined text-sm">close</span>
+</button>
+</div>
+<div class="font-body-md text-body-md text-on-surface-variant space-y-space-sm" id="modal-contenido">
+<!-- Contenido dinámico -->
+</div>
+<div class="flex items-center justify-end gap-space-sm pt-space-xs">
+<button class="px-space-md py-2 rounded bg-surface-container text-on-surface font-label-md text-label-md hover:bg-surface-container-high transition-colors" onclick="cerrarModal()">
+          Cerrar
+        </button>
+<a class="px-space-md py-2 rounded bg-primary-container text-on-primary-container font-label-md text-label-md hover:bg-primary transition-colors" href="#contacto" onclick="cerrarModal()">
+          Solicitar este desarrollo
+        </a>
+</div>
+</div>
+</div>
+</div>
+<script>
+  function ejecutarScriptTerminal() {
+    const textOut = document.getElementById('output-terminal-text');
+    if (!textOut) return;
+    textOut.innerHTML = '<span class="text-secondary">ejecutando...</span>';
+    setTimeout(() => {
+      textOut.innerHTML = '<span class="text-primary font-bold">hola</span> <span class="text-outline text-xs ml-2">[retorno: 0]</span>';
+    }, 350);
+  }
+
+  function copiarTerminal() {
+    const codigo = '# Mi primer saludo\\ndef saludar():\\n    print("hola")\\n\\nsaludar()';
+    navigator.clipboard.writeText(codigo).then(() => {
+      const btn = document.getElementById('btn-copiar-terminal');
+      if (btn) {
+        btn.classList.add('text-primary-container');
+        setTimeout(() => btn.classList.remove('text-primary-container'), 1500);
+      }
+    });
+  }
+
+  function copiarSnippetHola() {
+    const snippet = 'print("hola")';
+    navigator.clipboard.writeText(snippet).then(() => {
+      const label = document.getElementById('label-copiar-hola');
+      if (label) {
+        label.innerText = '¡Copiado!';
+        setTimeout(() => {
+          label.innerText = 'Copiar código';
+        }, 1800);
+      }
+    });
+  }
+
+  function copiarEmail() {
+    navigator.clipboard.writeText('fabio@gmail.com').then(() => {
+      const btn = document.getElementById('btn-copy-email');
+      if (btn) {
+        btn.innerHTML = '<span class="material-symbols-outlined text-sm text-primary">done</span>';
+        setTimeout(() => {
+          btn.innerHTML = '<span class="material-symbols-outlined text-sm">content_copy</span>';
+        }, 1800);
+      }
+    });
+  }
+
+  function copiarTelefono() {
+    navigator.clipboard.writeText('20202020').then(() => {
+      const btn = document.getElementById('btn-copy-tel');
+      if (btn) {
+        btn.innerHTML = '<span class="material-symbols-outlined text-sm text-secondary">done</span>';
+        setTimeout(() => {
+          btn.innerHTML = '<span class="material-symbols-outlined text-sm">content_copy</span>';
+        }, 1800);
+      }
+    });
+  }
+
+  function enviarMensajeFormulario(e) {
+    e.preventDefault();
+    const btn = document.getElementById('btn-enviar-form');
+    const alerta = document.getElementById('form-alerta-exito');
+    if (btn) {
+      btn.disabled = true;
+      btn.innerText = 'Enviando...';
+    }
+    setTimeout(() => {
+      if (alerta) alerta.classList.remove('hidden');
+      if (btn) {
+        btn.disabled = false;
+        btn.innerHTML = '<span class="material-symbols-outlined text-base">check</span> Mensaje Enviado';
+      }
+      document.getElementById('formulario-contacto').reset();
+      setTimeout(() => {
+        if (btn) {
+          btn.innerHTML = '<span class="material-symbols-outlined text-base">forward_to_inbox</span> <span>Enviar Mensaje</span>';
+        }
+      }, 4000);
+    }, 600);
+  }
+
+  function abrirModalDemo(nombre) {
+    const modal = document.getElementById('modal-proyecto');
+    const titulo = document.getElementById('modal-titulo');
+    const contenido = document.getElementById('modal-contenido');
+    if (modal && titulo && contenido) {
+      titulo.innerText = nombre;
+      contenido.innerHTML = `
+        <p class="font-body-md text-body-md text-on-surface">Demostración en vivo y entorno de ejecución preparado para inspección.</p>
+        <div class="p-space-sm rounded bg-surface-container font-code-sm text-code-sm space-y-1">
+          <div class="text-primary-container">&gt; Estado: Listo para despliegue en servidor / VPS</div>
+          <div class="text-on-surface-variant">&gt; Latencia promedio: 34ms</div>
+          <div class="text-secondary">&gt; Stack: Python 3.12, AsyncIO, Logging nativo</div>
+        </div>
+        <p class="font-body-sm text-body-sm text-on-surface-variant">Puedes coordinar con Fabio para recibir una prueba interactiva en un servidor de Discord o una sesión de pantalla compartida.</p>
+      `;
+      modal.classList.remove('hidden');
+      modal.classList.add('flex');
+    }
+  }
+
+  function abrirModalCodigo(nombre) {
+    const modal = document.getElementById('modal-proyecto');
+    const titulo = document.getElementById('modal-titulo');
+    const contenido = document.getElementById('modal-contenido');
+    if (modal && titulo && contenido) {
+      titulo.innerText = 'Código Fuente & Repositorio: ' + nombre;
+      contenido.innerHTML = `
+        <p class="font-body-md text-body-md text-on-surface">Estructura limpia siguiendo las guías PEP 8 de la comunidad Python.</p>
+        <div class="p-space-sm rounded bg-surface-container font-code-sm text-code-sm space-y-1">
+          <div class="text-outline-variant"># Archivos principales</div>
+          <div class="text-on-surface">&bull; main.py (entrypoint)</div>
+          <div class="text-on-surface">&bull; cogs/ (módulos y comandos desacoplados)</div>
+          <div class="text-on-surface">&bull; config.json &bull; requirements.txt</div>
+        </div>
+        <p class="font-body-sm text-body-sm text-on-surface-variant">Repositorio privado accesible bajo solicitud para revisión técnica y feedback de contratación.</p>
+      `;
+      modal.classList.remove('hidden');
+      modal.classList.add('flex');
+    }
+  }
+
+  function cerrarModal() {
+    const modal = document.getElementById('modal-proyecto');
+    if (modal) {
+      modal.classList.add('hidden');
+      modal.classList.remove('flex');
+    }
+  }
+</script></main><footer class="w-full bg-surface-container-lowest py-margin mt-margin shadow-[0_-1px_12px_rgba(0,0,0,0.3)]"><div class="max-w-[1240px] mx-auto px-gutter"><div class="grid grid-cols-1 md:grid-cols-12 gap-gutter items-start pb-space-xl"><div class="md:col-span-5 flex flex-col gap-space-sm"><div class="flex items-center gap-space-xs"><span class="font-headline-sm text-headline-sm text-on-surface font-bold">Fabio</span><span class="text-primary-container font-code-md text-code-md font-semibold">// Dev</span></div><p class="font-body-sm text-body-sm text-on-surface-variant max-w-sm">Arquitectura web limpia, interfaces reactivas de alto rendimiento y soluciones de ingeniería frontend orientadas a resultados escalables.</p><div class="flex items-center gap-space-sm pt-space-xs"><div class="inline-flex items-center gap-space-xs px-space-sm py-1 rounded bg-surface-container-low font-code-sm text-code-sm text-secondary-fixed-dim"><span class="material-symbols-outlined text-base">terminal</span>status: 200 OK</div><div class="inline-flex items-center gap-space-xs px-space-sm py-1 rounded bg-surface-container-low font-code-sm text-code-sm text-primary"><span class="material-symbols-outlined text-base">schedule</span>Madrid / UTC+1</div></div></div><div class="md:col-span-4 flex flex-col gap-space-xs"><span class="font-label-md text-label-md uppercase text-on-surface tracking-wider font-semibold mb-space-xs">Navegación</span><a class="font-body-sm text-body-sm text-on-surface-variant hover:text-on-surface transition-colors" data-path="inicio" href="#">Inicio</a><a class="font-body-sm text-body-sm text-on-surface-variant hover:text-on-surface transition-colors" data-path="sobre-mi" href="#">Sobre mí</a><a class="font-body-sm text-body-sm text-on-surface-variant hover:text-on-surface transition-colors" data-path="habilidades-y-cursos" href="#">Habilidades &amp; Cursos</a><a class="font-body-sm text-body-sm text-on-surface-variant hover:text-on-surface transition-colors" data-path="proyectos" href="#">Proyectos destacados</a><a class="font-body-sm text-body-sm text-on-surface-variant hover:text-on-surface transition-colors" data-path="contacto" href="#">Terminal de contacto</a></div><div class="md:col-span-3 flex flex-col gap-space-xs"><span class="font-label-md text-label-md uppercase text-on-surface tracking-wider font-semibold mb-space-xs">Disponibilidad</span><p class="font-body-sm text-body-sm text-on-surface-variant">Abierto a contratos full-time remotos y consultoría técnica de arquitectura web.</p><div class="pt-space-sm"><a class="inline-flex items-center gap-space-xs font-code-sm text-code-sm text-primary-container hover:text-primary transition-colors" data-path="contacto" href="#"><span class="material-symbols-outlined text-base">mail</span>iniciar_conversacion()</a></div></div></div><div class="pt-space-lg flex flex-col sm:flex-row items-center justify-between gap-space-sm text-on-surface-variant font-code-sm text-code-sm"><div class="flex items-center gap-space-xs"><span>© 2025 Fabio // Dev. Diseñado con precisión técnica.</span></div><div class="flex items-center gap-space-md"><span class="text-outline">v3.4.0-stable</span><span class="text-primary-container">•</span><span>Next.js &amp; Tailwind Core</span></div></div></div></footer></body></html>
