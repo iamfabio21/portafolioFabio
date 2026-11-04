@@ -27,14 +27,39 @@
     animation: textReveal 1.2s cubic-bezier(.2, .75, .25, 1) both;
     animation-delay: var(--reveal-delay, 0ms);
   }
+  @keyframes depthArrival {
+    from { opacity: .55; transform: perspective(900px) translateY(32px) rotateX(5deg); filter: blur(3px); }
+    to { opacity: 1; transform: perspective(900px) translateY(0) rotateX(0); filter: none; }
+  }
+  html.has-scroll-reveal .scroll-reveal.is-visible {
+    animation: depthArrival .95s cubic-bezier(.2, .8, .2, 1) both;
+    animation-delay: var(--reveal-delay, 0ms);
+    transform-origin: center top;
+  }
+  .scroll-progress-track { position: fixed; inset: 64px 0 auto; z-index: 60; height: 3px; background: rgba(195, 198, 205, .14); pointer-events: none; }
+  .scroll-progress-fill { width: 100%; height: 100%; background: linear-gradient(90deg, #fcf1d0, #6f3c22 58%, #c3c6cd); box-shadow: 0 0 14px rgba(252, 241, 208, .45); transform: scaleX(0); transform-origin: left center; }
   @media (prefers-reduced-motion: reduce) {
-    .text-reveal { animation: none !important; }
+    .text-reveal, .scroll-reveal { animation: none !important; }
+    .scroll-progress-track { display: none; }
   }
 </style>
 <script>
   document.addEventListener('DOMContentLoaded', () => {
+    const progressFill = document.getElementById('scroll-progress-fill');
+    let progressFrame = 0;
+    const updateProgress = () => {
+      const scrollableHeight = document.documentElement.scrollHeight - window.innerHeight;
+      const progress = scrollableHeight > 0 ? window.scrollY / scrollableHeight : 0;
+      if (progressFill) progressFill.style.transform = `scaleX(${progress})`;
+      progressFrame = 0;
+    };
+    updateProgress();
+    window.addEventListener('scroll', () => {
+      if (!progressFrame) progressFrame = window.requestAnimationFrame(updateProgress);
+    }, { passive: true });
+
     if (!('IntersectionObserver' in window) || window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
-    const revealTargets = document.querySelectorAll('.text-reveal');
+    const revealTargets = document.querySelectorAll('.text-reveal, .scroll-reveal');
     if (!revealTargets.length) return;
     document.documentElement.classList.add('has-scroll-reveal');
     const revealObserver = new IntersectionObserver((entries, observer) => {
@@ -44,10 +69,15 @@
           observer.unobserve(entry.target);
         }
       });
-    }, { threshold: 0.05, rootMargin: '0px 0px 120px 0px' });
-    revealTargets.forEach((target) => revealObserver.observe(target));
+    }, { threshold: 0.08, rootMargin: '0px 0px 100px 0px' });
+    revealTargets.forEach((target) => {
+      const siblings = Array.from(target.parentElement.children).filter((element) => element.matches('.text-reveal, .scroll-reveal'));
+      target.style.setProperty('--reveal-delay', `${Math.min(siblings.indexOf(target) * 120, 360)}ms`);
+      revealObserver.observe(target);
+    });
   });
 </script>
+<div class="scroll-progress-track" aria-hidden="true"><div class="scroll-progress-fill" id="scroll-progress-fill"></div></div>
 <!-- AMBIENT TOP LIGHTING GLOWS -->
 <div class="relative w-full overflow-hidden">
 <div class="absolute -top-32 left-1/4 w-[500px] h-[500px] bg-primary-container/10 rounded-full blur-[140px] pointer-events-none"></div>
@@ -185,7 +215,7 @@
 <!-- Bento-Grid of Facts & Lifestyle Cards -->
 <div class="grid grid-cols-1 md:grid-cols-12 gap-gutter">
 <!-- Card 1: Me gusta programar -->
-<div class="md:col-span-4 rounded-xl bg-surface-container p-space-lg flex flex-col justify-between shadow-lg relative overflow-hidden group hover:bg-surface-container-high transition-all">
+<div class="md:col-span-4 rounded-xl bg-surface-container p-space-lg flex flex-col justify-between shadow-lg relative overflow-hidden group hover:bg-surface-container-high transition-all scroll-reveal">
 <div class="absolute -right-6 -bottom-6 w-32 h-32 bg-primary-container/5 rounded-full blur-2xl group-hover:bg-primary-container/15 transition-all"></div>
 <div>
 <div class="w-12 h-12 rounded-lg bg-surface-container-lowest flex items-center justify-center text-primary-container mb-space-md shadow-sm">
@@ -204,7 +234,7 @@
 </div>
 </div>
 <!-- Card 2: Jugar y pasar tiempo con mis amigos -->
-<div class="md:col-span-4 rounded-xl bg-surface-container p-space-lg flex flex-col justify-between shadow-lg relative overflow-hidden group hover:bg-surface-container-high transition-all">
+<div class="md:col-span-4 rounded-xl bg-surface-container p-space-lg flex flex-col justify-between shadow-lg relative overflow-hidden group hover:bg-surface-container-high transition-all scroll-reveal">
 <div class="absolute -right-6 -bottom-6 w-32 h-32 bg-secondary-container/5 rounded-full blur-2xl group-hover:bg-secondary-container/15 transition-all"></div>
 <div>
 <div class="w-12 h-12 rounded-lg bg-surface-container-lowest flex items-center justify-center text-secondary mb-space-md shadow-sm">
@@ -223,7 +253,7 @@
 </div>
 </div>
 <!-- Card 3: Hacer deporte y comer saludable -->
-<div class="md:col-span-4 rounded-xl bg-surface-container p-space-lg flex flex-col justify-between shadow-lg relative overflow-hidden group hover:bg-surface-container-high transition-all">
+<div class="md:col-span-4 rounded-xl bg-surface-container p-space-lg flex flex-col justify-between shadow-lg relative overflow-hidden group hover:bg-surface-container-high transition-all scroll-reveal">
 <div class="absolute -right-6 -bottom-6 w-32 h-32 bg-primary/5 rounded-full blur-2xl group-hover:bg-primary/15 transition-all"></div>
 <div>
 <div class="w-12 h-12 rounded-lg bg-surface-container-lowest flex items-center justify-center text-primary-fixed mb-space-md shadow-sm">
@@ -443,7 +473,7 @@
 <!-- Grid of Projects -->
 <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-gutter">
 <!-- Proyecto A: Bot de Discord -->
-<div class="rounded-xl bg-surface-container p-space-md flex flex-col justify-between shadow-xl hover:bg-surface-container-high transition-all group">
+<div class="rounded-xl bg-surface-container p-space-md flex flex-col justify-between shadow-xl hover:bg-surface-container-high transition-all group scroll-reveal">
 <div>
 <!-- Mockup Visual Header -->
 <div class="h-44 rounded-lg bg-surface-container-lowest p-space-md flex flex-col justify-between relative overflow-hidden mb-space-md">
@@ -485,7 +515,7 @@
 </div>
 </div>
 <!-- Proyecto B: Sistema de automatización en Python -->
-<div class="rounded-xl bg-surface-container p-space-md flex flex-col justify-between shadow-xl hover:bg-surface-container-high transition-all group">
+<div class="rounded-xl bg-surface-container p-space-md flex flex-col justify-between shadow-xl hover:bg-surface-container-high transition-all group scroll-reveal">
 <div>
 <!-- Mockup Visual Header -->
 <div class="h-44 rounded-lg bg-surface-container-lowest p-space-md flex flex-col justify-between relative overflow-hidden mb-space-md">
@@ -529,7 +559,7 @@
 </div>
 </div>
 <!-- Proyecto C: Aplicación Backend & Consola interactiva -->
-<div class="rounded-xl bg-surface-container p-space-md flex flex-col justify-between shadow-xl hover:bg-surface-container-high transition-all group">
+<div class="rounded-xl bg-surface-container p-space-md flex flex-col justify-between shadow-xl hover:bg-surface-container-high transition-all group scroll-reveal">
 <div>
 <!-- Mockup Visual Header -->
 <div class="h-44 rounded-lg bg-surface-container-lowest p-space-md flex flex-col justify-between relative overflow-hidden mb-space-md">
@@ -786,33 +816,7 @@
         if (btn) {
           btn.innerHTML = '<span class="material-symbols-outlined text-base">forward_to_inbox</span> <span>Enviar Mensaje</span>';
         }
-      }, 4000);
-    }, 600);
-  }
-
-  function abrirModalDemo(nombre) {
-    const modal = document.getElementById('modal-proyecto');
-    const titulo = document.getElementById('modal-titulo');
-    const contenido = document.getElementById('modal-contenido');
-    if (modal && titulo && contenido) {
-      titulo.innerText = nombre;
-      contenido.innerHTML = `
-        <p class="font-body-md text-body-md text-on-surface">Demostración en vivo y entorno de ejecución preparado para inspección.</p>
-        <div class="p-space-sm rounded bg-surface-container font-code-sm text-code-sm space-y-1">
-          <div class="text-primary-container">&gt; Estado: Listo para despliegue en servidor / VPS</div>
-          <div class="text-on-surface-variant">&gt; Latencia promedio: 34ms</div>
-          <div class="text-secondary">&gt; Stack: Python 3.12, AsyncIO, Logging nativo</div>
-        </div>
-        <p class="font-body-sm text-body-sm text-on-surface-variant">Puedes coordinar con Fabio para recibir una prueba interactiva en un servidor de Discord o una sesión de pantalla compartida.</p>
-      `;
-      modal.classList.remove('hidden');
-      modal.classList.add('flex');
-    }
-  }
-
-  function abrirModalCodigo(nombre) {
-    const modal = document.getElementById('modal-proyecto');
-    const titulo = document.getElementById('modal-titulo');
+      },t titulo = document.getElementById('modal-titulo');
     const contenido = document.getElementById('modal-contenido');
     if (modal && titulo && contenido) {
       titulo.innerText = 'Código Fuente & Repositorio: ' + nombre;
@@ -838,4 +842,30 @@
       modal.classList.remove('flex');
     }
   }
-</script></main><footer class="w-full bg-surface-container-lowest py-margin mt-margin shadow-[0_-1px_12px_rgba(0,0,0,0.3)]"><div class="max-w-[1240px] mx-auto px-gutter"><div class="grid grid-cols-1 md:grid-cols-12 gap-gutter items-start pb-space-xl"><div class="md:col-span-5 flex flex-col gap-space-sm"><div class="flex items-center gap-space-xs"><span class="font-headline-sm text-headline-sm text-on-surface font-bold">Fabio</span><span class="text-primary-container font-code-md text-code-md font-semibold">// Dev</span></div><p class="font-body-sm text-body-sm text-on-surface-variant max-w-sm">Arquitectura web limpia, interfaces reactivas de alto rendimiento y soluciones de ingeniería frontend orientadas a resultados escalables.</p><div class="flex items-center gap-space-sm pt-space-xs"><div class="inline-flex items-center gap-space-xs px-space-sm py-1 rounded bg-surface-container-low font-code-sm text-code-sm text-secondary-fixed-dim"><span class="material-symbols-outlined text-base">terminal</span>status: 200 OK</div><div class="inline-flex items-center gap-space-xs px-space-sm py-1 rounded bg-surface-container-low font-code-sm text-code-sm text-primary"><span class="material-symbols-outlined text-base">schedule</span>Madrid / UTC+1</div></div></div><div class="md:col-span-4 flex flex-col gap-space-xs"><span class="font-label-md text-label-md uppercase text-on-surface tracking-wider font-semibold mb-space-xs">Navegación</span><a class="font-body-sm text-body-sm text-on-surface-variant hover:text-on-surface transition-colors" data-path="inicio" href="#">Inicio</a><a class="font-body-sm text-body-sm text-on-surface-variant hover:text-on-surface transition-colors" data-path="sobre-mi" href="#">Sobre mí</a><a class="font-body-sm text-body-sm text-on-surface-variant hover:text-on-surface transition-colors" data-path="habilidades-y-cursos" href="#">Habilidades &amp; Cursos</a><a class="font-body-sm text-body-sm text-on-surface-variant hover:text-on-surface transition-colors" data-path="proyectos" href="#">Proyectos destacados</a><a class="font-body-sm text-body-sm text-on-surface-variant hover:text-on-surface transition-colors" data-path="contacto" href="#">Terminal de contacto</a></div><div class="md:col-span-3 flex flex-col gap-space-xs"><span class="font-label-md text-label-md uppercase text-on-surface tracking-wider font-semibold mb-space-xs">Disponibilidad</span><p class="font-body-sm text-body-sm text-on-surface-variant">Abierto a contratos full-time remotos y consultoría técnica de arquitectura web.</p><div class="pt-space-sm"><a class="inline-flex items-center gap-space-xs font-code-sm text-code-sm text-primary-container hover:text-primary transition-colors" data-path="contacto" href="#"><span class="material-symbols-outlined text-base">mail</span>iniciar_conversacion()</a></div></div></div><div class="pt-space-lg flex flex-col sm:flex-row items-center justify-between gap-space-sm text-on-surface-variant font-code-sm text-code-sm"><div class="flex items-center gap-space-xs"><span>© 2025 Fabio // Dev. Diseñado con precisión técnica.</span></div><div class="flex items-center gap-space-md"><span class="text-outline">v3.4.0-stable</span><span class="text-primary-container">•</span><span>Next.js &amp; Tailwind Core</span></div></div></div></footer></body></html>
+</script></main><footer class="w-full bg-surface-container-lowest py-margin mt-margin shadow-[0_-1px_12px_rgba(0,0,0,0.3)]"><div class="max-w-[1240px] mx-auto px-gutter"><div class="grid grid-cols-1 md:grid-cols-12 gap-gutter items-start pb-space-xl"><div class="md:col-span-5 flex flex-col gap-space-sm"><div class="flex items-center gap-space-xs"><span class="font-headline-sm text-headline-sm text-on-surface font-bold">Fabio</span><span class="text-primary-container font-code-md text-code-md font-semibold">// Dev</span></div><p class="font-body-sm text-body-sm text-on-surface-variant max-w-sm">Arquitectura web limpia, interfaces reactivas de alto rendimiento y soluciones de ingeniería frontend orientadas a resultados escalables.</p><div class="flex items-center gap-space-sm pt-space-xs"><div class="inline-flex items-center gap-space-xs px-space-sm py-1 rounded bg-surface-container-low font-code-sm text-code-sm text-secondary-fixed-dim"><span class="material-symbols-outlined text-base">terminal</span>status: 200 OK</div><div class="inline-flex items-center gap-space-xs px-space-sm py-1 rounded bg-surface-container-low font-code-sm text-code-sm text-primary"><span class="material-symbols-outlined text-base">schedule</span>Madrid / UTC+1</div></div></div><div class="md:col-span-4 flex flex-col gap-space-xs"><span class="font-label-md text-label-md uppercase text-on-surface tracking-wider font-semibold mb-space-xs">Navegación</span><a class="font-body-sm text-body-sm text-on-surface-variant hover:text-on-surface transition-colors" data-path="inicio" href="#">Inicio</a><a class="font-body-sm text-body-sm text-on-surface-variant hover:text-on-surface transition-colors" data-path="sobre-mi" href="#">Sobre mí</a><a class="font-body-sm text-body-sm text-on-surface-variant hover:text-on-surface transition-colors" data-path="habilidades-y-cursos" href="#">Habilidades &amp; Cursos</a><a class="font-body-sm text-body-sm text-on-surface-variant hover:text-on-surface transition-colors" data-path="proyectos" href="#">Proyectos destacados</a><a class="font-body-sm text-body-sm text-on-surface-variant hover:text-on-surface transition-colors" data-path="contacto" href="#">Terminal de contacto</a></div><div class="md:col-span-3 flex flex-col gap-space-xs"><span class="font-label-md text-label-md uppercase text-on-surface tracking-wider font-semibold mb-space-xs">Disponibilidad</span><p class="font-body-sm text-body-sm text-on-surface-variant">Abierto a contratos full-time remotos y consultoría técnica de arquitectura web.</p><div class="pt-space-sm"><a class="inline-flex items-center gap-space-xs font-code-sm text-code-sm text-primary-container hover:text-primary transition-colors" data-path="contacto" href="#"><span class="material-symbols-outlined text-base">mail</span>iniciar_conversacion()</a></div></div></div><div class="pt-space-lg flex flex-col sm:flex-row items-center justify-between gap-space-sm text-on-surface-variant font-code-sm text-code-sm"><div class="flex items-center gap-space-xs"><span>© 2025 Fabio // Dev. Diseñado con precisión técnica.</span></div><div class="flex items-center gap-space-md"><span class="text-outline">v3.4.0-stable</span><span class="text-primary-container">•</span><span>Next.js &amp; Tailwind Core</span></div></div></div></footer></body></html> 4000);
+    }, 600);
+  }
+
+  function abrirModalDemo(nombre) {
+    const modal = document.getElementById('modal-proyecto');
+    const titulo = document.getElementById('modal-titulo');
+    const contenido = document.getElementById('modal-contenido');
+    if (modal && titulo && contenido) {
+      titulo.innerText = nombre;
+      contenido.innerHTML = `
+        <p class="font-body-md text-body-md text-on-surface">Demostración en vivo y entorno de ejecución preparado para inspección.</p>
+        <div class="p-space-sm rounded bg-surface-container font-code-sm text-code-sm space-y-1">
+          <div class="text-primary-container">&gt; Estado: Listo para despliegue en servidor / VPS</div>
+          <div class="text-on-surface-variant">&gt; Latencia promedio: 34ms</div>
+          <div class="text-secondary">&gt; Stack: Python 3.12, AsyncIO, Logging nativo</div>
+        </div>
+        <p class="font-body-sm text-body-sm text-on-surface-variant">Puedes coordinar con Fabio para recibir una prueba interactiva en un servidor de Discord o una sesión de pantalla compartida.</p>
+      `;
+      modal.classList.remove('hidden');
+      modal.classList.add('flex');
+    }
+  }
+
+  function abrirModalCodigo(nombre) {
+    const modal = document.getElementById('modal-proyecto');
+    cons
